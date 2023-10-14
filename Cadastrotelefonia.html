@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/cadastro.css" rel="stylesheet">
+    <script src="/js/cadastro.js" defer> </script> 
 </head>
 <body>
     <div class="container">
@@ -12,13 +13,13 @@
             <img src="img/fotocadastro.svg" >
         </div>
         <div class="form">
-            <form action="dados.php" method="post">
+            <form action="#">
             <div class="form-header">
                 <div class="title"> 
                 <h1> Cadastre-se </h1>    
                 </div>
             </div>    
-            
+            </form>
             <div class="input-group">
             <div class="input-box"> 
                 <label for="nome"> Nome </label>
@@ -28,16 +29,16 @@
                 <label for="datdaNasc"> Data de Nascimento </label>
                 <input id="dataNasc" type="date" name="nome" placeholder="Digite sua Data de Nascimento" required>
             </div>  
-            <div class="input-box"> 
+            <div class="gender-group"> 
             <p>Sexo:</p>
             <input type="radio" id="sexo-m" name="sexo" value="Masculino">
-            <label for="sexo-m">Feminino</label><br>
+            <label for="sexom">Feminino</label><br>
             <input type="radio" id="sexo-f" name="sexo" value="Feminino">
-            <label for="sexo-f">Masculino</label>
+            <label for="sexof">Masculino</label>
             </div>  
             <div class="input-box"> 
                 <label for="nomeMaterno"> Nome Materno </label>
-                <input id="nomeMaterno" type="text" name="nome" placeholder="Digite seu nome materno">
+                <input id="nomem" type="text" name="nome" placeholder="Digite seu nome materno">
             </div>  
             <div class="input-box"> 
                 <label for="cpf"> CPF </label>
@@ -45,7 +46,7 @@
             </div>  
             <div class="input-box"> 
                 <label for="telefoneCelular"> Telefone Celular </label>
-                <input id="telefoneCelular" type="tel" name="telefonecelular" placeholder="(xx-xxxx-xxxx)" required>
+                <input id="telefonec" type="tel" name="telefonecelular" placeholder="(xx-xxxx-xxxx)" required>
             </div>  
             <div class="input-box"> 
                 <label for="telefone"> Telefone Fixo </label>
@@ -53,7 +54,7 @@
             </div>  
             <div class="input-box"> 
                 <label for="endereço"> Endereço </label>
-                <input id="endereço" type="text" name="endereço" placeholder="Digite seu endereço completo" required>
+                <input id="endereco" type="text" name="endereço" placeholder="Digite seu endereço completo" required>
             </div>  
             <div class="input-box"> 
                 <label for="senha"> Senha </label>
@@ -61,15 +62,15 @@
             </div>  
             <div class="input-box"> 
                 <label for="cSenha"> Confirmar senha </label>
-                <input id="cSenha" type="password" name="confirmpassword" placeholder="Confirme sua senha" required>
+                <input id="csenha" type="password" name="confirmpassword" placeholder="Confirme sua senha" required>
             </div>  
+            <button onclick="limparcampos()"> Limpar Campos </button>
             </div>
             <div class="continue-button"> 
                 <button> <a href="#"> Continuar </a> </button>
             </div>
-            </form>
             <div class="Login">
-                <p> Entrar como: <a href="#"> Usuário Master </a> ou <a href="#"> Comum </a> </p>
+                <p> Entrar como: <a href="#"> Usuário Master </a> ou <a href="Logincomum.html"> Comum </a> </p>
             </div>
         </div>
     </div>
