@@ -1,0 +1,59 @@
+/* Definir o fundo da página como branco */
+body {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.div_pesquisa{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.caixa_pesquisa{
+    width: 40%;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+tr{
+    font-size: 20px;
+}
+
+.responsive_table {
+    overflow-x: auto;
+    margin: 30px;
+}
+
+.tabela_dados {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.tabela_dados th, .tabela_dados td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabela_dados th {
+    background-color: #f2f2f2;
+}
+
+.tabela_dados tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabela_dados tr:hover {
+    background-color: #ddd;
+}
+
+@media screen and (max-width:1360px){
+    tr{
+        font-size: 20px;
+    }
+ }
+
