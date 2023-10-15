@@ -66,12 +66,12 @@
                 <label for="datdaNasc"> Data de Nascimento </label>
                 <input id="dataNasc" type="date" name="dataNasc" value='<?php echo $data_nasc ?>' placeholder="Digite sua Data de Nascimento" required>
             </div>  
-            <div class="gender-group"> 
+            <div class="gender-group">
             <p>Sexo:</p>
-            <input type="radio" id="sexo-m" name="sexo" value="M" <?php echo ($sexo == 'F') ? 'checked' : '' ?>>
-            <label for="sexom">Feminino</label><br>
-            <input type="radio" id="sexo-f" name="sexo" value="F" <?php echo ($sexo == 'M') ? 'checked' : ''?>>
-            <label for="sexof">Masculino</label>
+                <input type="radio" id="sexo-m" name="sexo" value="M" <?php echo ($sexo == 'M') ? 'checked' : '' ?>>
+                    <label for="sexo-m">Masculino</label><br>
+                <input type="radio" id="sexo-f" name="sexo" value="F" <?php echo ($sexo == 'F') ? 'checked' : '' ?>>
+                    <label for="sexo-f">Feminino</label>
             </div>  
             <div class="input-box"> 
                 <label class='label-nomeMaterno' for="nomeMaterno"> Nome Materno </label>
