@@ -1,77 +1,109 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link href="css/style.css" rel="stylesheet">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <title>Telefonia</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
 </head>
 <body>
-    <div class="container">
-        <div class="form-image">
-            <img src="img/fotocadastro.svg" >
+<div class="splash-container">
+<div class="header">
+
+    <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Telefonia</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="Cadastrotelefonia.php">Cadastro</a></li>
+            <li><a href="MenuComum.html">Serviços</a></li>
+            <li><a href="collapsible.html">Login</a></li>
+          </ul>
         </div>
-        <div class="form">
-            <form action="dados.php" method="post">
-            <div class="form-header">
-                <div class="title"> 
-                <h1> Cadastre-se </h1>    
-                </div>
-            </div>    
+      </nav>
+</div>
+
+
+    <div class="splash">
+        <h1 class="splash-head">Telefonia</h1>
+        <p class="splash-subhead">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        </p>
+        <p>
+            <a href="Cadastrotelefonia.php" class="pure-button pure-button-primary">Cadastrar</a>
+        </p>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">Quem somos</h2>
+
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    Faça seu cadastro
+                </h3>
+                <p>
+                    
+                </p>
+            </div>
             
-            <div class="input-group">
-            <div class="input-box"> 
-                <label for="nome"> Nome </label>
-                <input id="nome" type="text" name="nome" placeholder="Digite seu nome" required>
-            </div>    
-            <div class="input-box"> 
-                <label for="datdaNasc"> Data de Nascimento </label>
-                <input id="dataNasc" type="date" name="nome" placeholder="Digite sua Data de Nascimento" required>
-            </div>  
-            <div class="input-box"> 
-            <p>Sexo:</p>
-            <input type="radio" id="sexo-m" name="sexo" value="Masculino">
-            <label for="sexo-m">Feminino</label><br>
-            <input type="radio" id="sexo-f" name="sexo" value="Feminino">
-            <label for="sexo-f">Masculino</label>
-            </div>  
-            <div class="input-box"> 
-                <label for="nomeMaterno"> Nome Materno </label>
-                <input id="nomeMaterno" type="text" name="nome" placeholder="Digite seu nome materno">
-            </div>  
-            <div class="input-box"> 
-                <label for="cpf"> CPF </label>
-                <input id="cpf" type="text" name="cpf" placeholder="Digite seu CPF" required>
-            </div>  
-            <div class="input-box"> 
-                <label for="telefoneCelular"> Telefone Celular </label>
-                <input id="telefoneCelular" type="tel" name="telefonecelular" placeholder="(xx-xxxx-xxxx)" required>
-            </div>  
-            <div class="input-box"> 
-                <label for="telefone"> Telefone Fixo </label>
-                <input id="telefone" type="tel" name="telefone" placeholder="(xx-xxxxxxxx)" required>
-            </div>  
-            <div class="input-box"> 
-                <label for="endereço"> Endereço </label>
-                <input id="endereço" type="text" name="endereço" placeholder="Digite seu endereço completo" required>
-            </div>  
-            <div class="input-box"> 
-                <label for="senha"> Senha </label>
-                <input id="senha" type="password" name="senha" placeholder="Digite a senha" required>
-            </div>  
-            <div class="input-box"> 
-                <label for="cSenha"> Confirmar senha </label>
-                <input id="cSenha" type="password" name="confirmpassword" placeholder="Confirme sua senha" required>
-            </div>  
-            </div>
-            <div class="continue-button"> 
-                <button> <a href="#"> Continuar </a> </button>
-            </div>
-            </form>
-            <div class="Login">
-                <p> Entrar como: <a href="#"> Usuário Master </a> ou <a href="#"> Comum </a> </p>
-            </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <img width="300" alt="File Icons" class="pure-img-responsive" src="img/contato.png">
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h2 class="content-head content-head-ribbon">Telefonia</h2>
+
+            <p>
+                Info Telefonia
+            </p>
         </div>
     </div>
-</body>
+
+    <div class="content">
+        <h2 class="content-head is-center">Saiba mais sobre nós</h2>
+
+        
+
+            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                <h4>Contate-nos</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                </p>
+
+                <h4>Mais informações</h4>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer l-box is-center">
+        Por Marcelle, Fernanda e Caio
+    </div>
+
+</div>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </html>

@@ -3,13 +3,13 @@ function limparcampos() {
     nome.value='';
     const dataNasc=document.querySelector('#dataNasc') ;
     dataNasc.value='';
-    const nomem=document.querySelector('#nomem') ;
+    const nomem=document.querySelector('#nomeMaterno') ;
     nomem.value='';
     const cpf=document.querySelector('#cpf') ;
     cpf.value='';
     const endereco=document.querySelector('#endereco') ;
     endereco.value='';
-    const telefonec=document.querySelector('#telefonec') ;
+    const telefonec=document.querySelector('#telefoneCelular') ;
     telefonec.value='';
     const telefone=document.querySelector('#telefone') ;
     telefone.value='';

@@ -1,6 +1,14 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
 
-//conexao
+<?php
 
 $host="localhost";
 $port=3308;
@@ -10,21 +18,20 @@ $password="";
 $dbname="mydb";
 
 $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
-	// or die ('Could not connect to the database server' . mysqli_connect_error());
+    or die ('Could not connect to the database server' . mysqli_connect_error());
 
-//$con->close();
+        
+    //$con->close();
+    
+    if ($con->connect_errno) {
+        echo "<br>Erro<br>";
+        } else {
+        echo "<br>conectado com sucesso<br>";
+    };
 
-    or die("html>script language='JavaScript'>alert('Unable to connect to
-    database! Please try again later.'),history.go(-1)/script>/html>");
-    mysqli_select_db($dbname);
-    # Check If Record Exists
-    $query = "SELECT * FROM $usertable";
-    $result = mysqli_query($query);
-    if($result){
-    while($row = mysqli_fetch_array($result)){
-    $name = $row["$yourfield"];
-    echo "Name: ".$name."br/>";
-    };
-    };
-include ( '/index.html');
+
+
+   
 ?>
+</body>
+</html>
