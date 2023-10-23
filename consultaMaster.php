@@ -9,10 +9,17 @@
    
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    $sql = "SELECT * FROM USUARIO";
-    
-    $result = $conn->query($sql);
+    if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM USUARIO WHERE ID LIKE '%$data%' or NOME LIKE '%$data%' or CPF LIKE '%$data%' ORDER BY id DESC";
+    }
+    else
+    {
+        $sql = "SELECT * FROM USUARIO ORDER BY id DESC";
+    }
 
+    $result = $conn->query($sql);
 ?>
 
 
@@ -32,7 +39,7 @@
     <main>
 
     <div class="div_pesquisa">
-        <input class="caixa_pesquisa" type="text" name="pesquisa" id="pesquisa" placeholder="Pesquise aqui..">
+        <input class="caixa_pesquisa" type="text" name="pesquisar" id="pesquisar" value="<?php if (!isset($_GET['search'])){ echo ""; }else{echo $_GET['search'];}; ?>" placeholder="Pesquise aqui..">
     </div>
 
     <div class="responsive_table">
@@ -87,7 +94,21 @@
             $conn->close();
         ?>
     </div>
-
     </main>
 </body>
+<script>
+    var search = document.getElementById('pesquisar');
+
+    search.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") 
+        {
+            searchData();
+        }
+    });
+
+    function searchData()
+    {
+        window.location = 'consultaMaster.php?search='+search.value;
+    }
+</script>
 </html>
