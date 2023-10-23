@@ -5,6 +5,10 @@ body {
     padding: 0;
 }
 
+.icone_editar, .icone_status{
+    width: 40px;
+}
+
 .div_pesquisa{
     display: flex;
     justify-content: center;

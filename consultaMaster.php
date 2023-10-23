@@ -73,9 +73,9 @@
                         <td>" . $row["TIPO_USUARIO"] . "</td>
 
 
-                        <td> <a href='edit.php?id=$row[ID]' >editar</a>
+                        <td> <a href='edit.php?id=$row[ID]' ><img class='icone_editar' src='img/icone_editar.png' ></a>
                         
-                            <a href='status.php?id=$row[ID]' >remover</a> </td>
+                            <a href='status.php?id=$row[ID]' ><img class='icone_status' src='img/icone_status.png' ></a></td>
 
                     </tr>";
                 }
