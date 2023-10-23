@@ -75,7 +75,7 @@
 
                         <td> <a href='edit.php?id=$row[ID]' >editar</a>
                         
-                            <a href='delete.php?id=$row[ID]' >remover</a> </td>
+                            <a href='status.php?id=$row[ID]' >remover</a> </td>
 
                     </tr>";
                 }
