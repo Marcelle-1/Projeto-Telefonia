@@ -34,6 +34,19 @@
 </head>
 <body>
 
+<div class="header">
+
+    <nav>
+        <div class="nav-wrapper">
+          <a href="index.html" class="brand-logo">Telefonia</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="Cadastrotelefonia.php">Cadastro</a></li>
+            <li><a href="MenuComum.html">Serviços</a></li>
+            <li><a href="collapsible.html">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+</div>
 
 <!--Main-->
     <main>
@@ -96,6 +109,7 @@
     </div>
     </main>
 </body>
+
 <script>
     var search = document.getElementById('pesquisar');
 
@@ -111,4 +125,9 @@
         window.location = 'consultaMaster.php?search='+search.value;
     }
 </script>
+
+<div class="footer l-box is-center">
+        Por Marcelle, Fernanda e Caio
+</div>
+
 </html>
