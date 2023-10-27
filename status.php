@@ -1,12 +1,8 @@
 <?php
 
 if (!empty($_GET['id'])) {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "mydb";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    include_once('conexao.php');
 
     $id = $_GET['id'];
 
