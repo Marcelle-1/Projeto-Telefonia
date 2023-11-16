@@ -34,9 +34,7 @@
         <div class="nav-wrapper">
           <a href="index.html" class="brand-logo">Telefonia</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="Cadastrotelefonia.php">Cadastro</a></li>
-            <li><a href="MenuComum.html">Serviços</a></li>
-            <li><a href="collapsible.html">Login</a></li>
+            <li class="btn_voltar"><a href="MenuMaster.html">VOLTAR</a></li>
           </ul>
         </div>
       </nav>
