@@ -4,7 +4,7 @@ session_start();
 
 require_once('methods/verification.php');
 
-verification('LoginComum/LoginComum.php');
+verification('Logincomum.php');
 
 ?>
 
