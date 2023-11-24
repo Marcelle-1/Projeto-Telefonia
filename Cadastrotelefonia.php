@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link href="/css/cadastro.css" rel="stylesheet">
+    <link href="css/cadastro.css" rel="stylesheet" type="text/css">
     <script src="/js/cadastro.js" defer> </script> 
 </head>
 <body>
