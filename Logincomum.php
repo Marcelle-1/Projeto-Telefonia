@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
                     <label for="Usuario" id="usuario"> Usuário </label>
                     <input id="Usuario" type="text" name="usuario" placeholder="Usuário" >
                 </div>    
-                <div class="textfield2"> 
+                <div class="textfield"> 
                     <label for="Senha" id="senha"> Senha </label>
                     <input id="Senha" type="password" name="senha" placeholder="Senha" >
                 </div> 
