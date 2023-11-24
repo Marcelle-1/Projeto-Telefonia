@@ -23,7 +23,7 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="Cadastrotelefonia.php">Cadastro</a></li>
             <li><a href="MenuComum.html">Serviços</a></li>
-            <li><a href="collapsible.html">Login</a></li>
+            <li><a href="Logincomum.php">Login</a></li>
           </ul>
         </div>
       </nav>

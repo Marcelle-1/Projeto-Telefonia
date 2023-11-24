@@ -17,7 +17,7 @@
                 <h1> LOGIN </h1> 
                 <div class="textfield"> 
                     <form action="methods/login.php" method="POST">
-                    <label for="usuario" id="usuario"> Usuário </label>
+                    <label for="usuario" id="usuario"> Usuário </label><br/>
                     <input id="Usuario" type="text" name="usuario" placeholder="Usuário" >
                 </div>    
                 <div class="textfield2"> 
@@ -25,8 +25,14 @@
                     <input id="Senha" type="password" name="senha" placeholder="Senha" >
                 </div> 
                 </form>
-                <button class="btn-login"> Entrar </button>  
-                <button onclick="limparcampos()" class="btn-limpar"> Limpar Campos </button>
+                <button class="btn-login"> Entrar </button>
+                <div class="extras">
+                    
+                    <a href="loginMaster.php">Trabalha aqui?</a>
+
+                    <a href="#">Esqueceu a senha?</a>
+
+                </div>  
             </div>
         </div>
     </div>
