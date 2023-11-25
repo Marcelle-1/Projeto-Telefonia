@@ -1,6 +1,6 @@
-*{ 
-    padding: 0;
-    margin: 0;
+*{
+    padding: 0px;
+    margin: 0px;
     box-sizing: border-box;
     font-family: sans-serif;
 }
@@ -15,10 +15,11 @@ body{
 }
 
 .container{
-    width: 80%;
-    height: 80vh;
+    /* width: 80%; */
+    /* height: 80%; */
     display: flex;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    flex-direction: row;
 }
 
 .form-image{
@@ -40,9 +41,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     background-color: #fff;
-    padding: 3rem;
+    padding: 0.7rem;
+    flex-wrap: wrap;
 }
 
 .form-header{
@@ -65,8 +66,8 @@ body{
 .input-group{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 1rem;
+    justify-content: space-between;
 }
 
 .input-box{
@@ -76,8 +77,8 @@ body{
 }
 
 .input-box input {
-    margin: 0.6rem 0;
-    padding: 0.8rem 1.2rem;
+    /* margin: 0.6rem 0; */
+    padding: 1rem 0.2rem;
     border: none;
     border-radius: 10px;
     box-shadow: 1px 1px 6px #0000001c;
@@ -151,3 +152,16 @@ button{
         margin-top: 0.5rem;
     }
  }
+
+
+  /* pág erro */
+  #erro {
+    padding-top: 10%;
+    background-color: whitesmoke;
+    justify-content: center;
+ }
+
+ #bodyErro {
+    background-color: lightgrey;
+ }
+

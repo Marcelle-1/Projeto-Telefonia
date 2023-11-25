@@ -37,7 +37,7 @@ body {
 }
 
 .card-login{
-    width: 60%;
+    /* width: 60%; */
     display: flex;
     justify-content: center;
     background: #344182;
@@ -88,7 +88,7 @@ label{
     color: rgb(36, 49, 116);
 }
 
-.btn-limpar{
+/* .btn-limpar{
     border-radius: 10px;
     border-radius: 8px;
     outline: none;
@@ -98,7 +98,7 @@ label{
     margin: 25px;
     border: none;
 
-}
+} */
 
 img{
     /* width: 200px; */

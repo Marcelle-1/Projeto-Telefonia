@@ -101,9 +101,9 @@ verification('Logincomum.php');
             <ul class="paragrafo">
                 <p> Copyright © 2023 | Telefonia. Todos os direitos reservados. </p>
                 <p>Desenvolvido por: Marcelle, Fernanda e Caio </p>
-                <a href="https://www.instagram.com/telecallbr/" target="_blank"><img class="socialMedia" src="./img/instagram.svg" alt="Instagram"></a>
-                <a href="https://www.linkedin.com/company/telecall/" target="_blank"><img class="socialMedia" src="./img/linkedin.png" alt="LinkedIn"></a>
-                <a href="https://www.facebook.com/TelecallBr" target="_blank"><img class="socialMedia" src="./img/facebook.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img class="socialMedia" src="./img/instagram.svg" alt="Instagram"></a>
+                <a href="https://www.linkedin.com/" target="_blank"><img class="socialMedia" src="./img/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img class="socialMedia" src="./img/facebook.png" alt="Facebook"></a>
             </ul>
         </div>
     </footer>
