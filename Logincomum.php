@@ -15,18 +15,19 @@
         <div class="right-login"> 
             <div class="card-login">
                 <h1> LOGIN </h1> 
-                <form action="methods/login.php" method="POST">
-                <div class="textfield"> 
-                    <label for="Usuario" id="usuario"> Usuário </label>
-                    <input id="Usuario" type="text" name="usuario" placeholder="Usuário" >
-                </div>    
-                <div class="textfield"> 
-                    <label for="Senha" id="senha"> Senha </label>
-                    <input id="Senha" type="password" name="senha" placeholder="Senha" >
-                </div> 
+                <form action="testlogin.php" method="POST">
+                    <div class="textfield"> 
+                        <label for="Usuario" id="usuario"> Usuário </label>
+                        <input id="Usuario" type="text" name="usuario" placeholder="Usuário" >
+                    </div>    
+                    <div class="textfield"> 
+                        <label for="Senha" id="senha"> Senha </label>
+                        <input id="Senha" type="password" name="senha" placeholder="Senha" >
+                    </div>
+                    <button onclick="limparcampos()" class="btn-limpar"> Limpar Campos </button>
+                    <button class="btn-login" type="submit" name="submit"> Entrar </button> 
                 </form>
-                <button onclick="limparcampos()" class="btn-limpar"> Limpar Campos </button>
-                <button class="btn-login" type="submit"> Entrar </button>  
+                 
             </div>
         </div>
     </div>

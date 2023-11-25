@@ -1,10 +1,10 @@
 <?php
 
-session_start();
+//session_start();
 
-require_once('methods/verification.php');
+//require_once('methods/verification.php');
 
-verification('Logincomum.php');
+//verification('Logincomum.php');
 
 ?>
 
