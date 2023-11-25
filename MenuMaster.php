@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    include_once('conexao.php');
+
+    if((!isset($_SESSION['nome']) == true) and (!isset($_SESSION['senha']) == true) and (!isset($_SESSION['MASTER'])))
+    {
+        unset($_SESSION['nome']);
+        unset($_SESSION['senha']);
+        unset($_SESSION['MASTER']);
+        header('Location: loginMaster.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
