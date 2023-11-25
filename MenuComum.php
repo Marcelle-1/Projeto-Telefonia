@@ -1,14 +1,14 @@
 <?php
+    session_start();
+    include_once('conexao.php');
 
-//session_start();
-
-//require_once('methods/verification.php');
-
-//verification('Logincomum.php');
-
+    if((!isset($_SESSION['nome']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['nome']);
+        unset($_SESSION['senha']);
+        header('Location: login.php');
+    }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">

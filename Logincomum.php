@@ -25,7 +25,7 @@
                         <input id="Senha" type="password" name="senha" placeholder="Senha" >
                     </div>
                     <button onclick="limparcampos()" class="btn-limpar"> Limpar Campos </button>
-                    <button class="btn-login" type="submit" name="submit"> Entrar </button> 
+                    <button class="btn-login" type="submit" name="submit"> Entrar </button>
                 </form>
                  
             </div>

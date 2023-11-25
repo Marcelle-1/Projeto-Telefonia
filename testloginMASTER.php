@@ -11,7 +11,8 @@
         $senha = $_POST['senha'];
 
 
-        $sql = "SELECT * FROM USUARIO WHERE NOME = '$usuario' and senha = '$senha'";
+        $sql = "SELECT * FROM USUARIO WHERE NOME = '$usuario' and senha = '$senha'
+            and TIPO_USUARIO = 'MASTER'";
 
 
         $result = $conn->query($sql);
@@ -23,17 +24,19 @@
         {
             unset($_SESSION['usuario']);
             unset($_SESSION['senha']);
-            header('Location: logincomum.php');
+            unset($_SESSION['MASTER']);
+            header('Location: loginMaster.php');
         }
         else
         {
             $_SESSION['usuario'] = $usuario;
             $_SESSION['senha'] = $senha;
-            header('Location: MenuComum.php');
+            $_SESSION['MASTER'] = true;
+            header('Location: MenuMaster.php');
         }
     }
     else
     {
-        header('location: logincomum.php');
+        header('location: loginMaster.php');
     }
 ?>
