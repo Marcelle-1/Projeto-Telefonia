@@ -2,13 +2,16 @@
     session_start();
     include_once('conexao.php');
 
-    if((!isset($_SESSION['nome']) == true) and (!isset($_SESSION['senha']) == true) and (!isset($_SESSION['MASTER'])))
+    
+
+    if((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true) and (!isset($_SESSION['MASTER'])))
     {
-        unset($_SESSION['nome']);
+        unset($_SESSION['usuario']);
         unset($_SESSION['senha']);
         unset($_SESSION['MASTER']);
         header('Location: loginMaster.php');
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +28,10 @@
         <a href="./index.html"> 
             <img class="imgLogoHeader" src="img/logo.png" alt="logotelecall">
         </a>
+        <div>
+            <a href="deslogar.php"><button>Desologar</button></a>
+            <a href="consultaMaster.php"><button>Consulta Master</button></a>
+        </div>
     </header>            
     <section class="container servicosCpaas">
         <h1>Serviços</h1>

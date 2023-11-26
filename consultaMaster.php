@@ -3,6 +3,7 @@
 
     include_once('conexao.php');
 
+
     if(!empty($_GET['search']))
     {
         $data = $_GET['search'];
@@ -34,7 +35,7 @@
         <div class="nav-wrapper">
           <a href="index.html" class="brand-logo">Telefonia</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li class="btn_voltar"><a href="MenuMaster.html">VOLTAR</a></li>
+            <li class="btn_voltar"><a href="MenuMaster.php">VOLTAR</a></li>
           </ul>
         </div>
       </nav>

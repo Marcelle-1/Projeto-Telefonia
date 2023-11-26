@@ -7,6 +7,13 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: medium;
 }
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 body{
     background-color: whitesmoke;
 }
