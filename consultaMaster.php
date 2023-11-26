@@ -1,8 +1,14 @@
 
 <?php
 
+    session_start();
     include_once('conexao.php');
 
+    if(!isset($_SESSION['MASTER']))
+    {
+        header('location: LoginMaster.php');
+        exit();
+    }
 
     if(!empty($_GET['search']))
     {

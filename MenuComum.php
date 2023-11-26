@@ -1,10 +1,11 @@
 <?php
     session_start();
+
     include_once('conexao.php');
 
-    if((!isset($_SESSION['nome']) == true) and (!isset($_SESSION['senha']) == true))
+    if((!isset($_SESSION['usuario']) == true) and (!isset($_SESSION['senha']) == true))
     {
-        unset($_SESSION['nome']);
+        unset($_SESSION['usuario']);
         unset($_SESSION['senha']);
         header('Location: logincomum.php');
     }
@@ -24,7 +25,10 @@
         <a href="./index.html"> 
             <img class="imgLogoHeader" src="img/logo.png" alt="logotelecall">
         </a>
+            <h2><?php echo $_SESSION['usuario']; ?></h2>
         <div>
+            
+            <a href="perfilcomum.php"><button>Perfil</button></a>
             <a href="deslogar.php"><button>Desologar</button></a>
         </div>
     </header>            
