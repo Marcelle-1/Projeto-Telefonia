@@ -12,6 +12,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        <?php
+           
+            session_start();
+
+            
+            if (isset($_SESSION['usuario'])) 
+            {
+                echo '
+                #nav-mobile 
+                { 
+                    display: none; 
+                }   
+                
+                #nav-mobile-logado
+                {
+                    display: block;
+                }';
+            } 
+            else
+            {
+                echo '
+                
+                #nav-mobile-logado
+                {
+                    display: none;
+                }
+                ';
+            }
+        ?>
+    </style>
 
 </head>
 <body>
@@ -27,13 +58,17 @@
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">Telefonia</a>
+            
+            <ul id="nav-mobile-logado" class="right hide-on-med-and-down">
+                <li><a href="perfilcomum.php"><?php echo $_SESSION['usuario']?></a></li>
+                <li><a href="deslogar.php">Deslogar</a></li>
+                <li><a href="MenuComum.php">Menu</a></li>
+            </ul>
+
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="Cadastrotelefonia.html">Cadastro</a></li>
                 <li><a href="MenuComum.php">Serviços</a></li>
-                <!-- Dropdown Trigger -->
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login<i class="material-icons right">arrow_drop_down</i></a></li>
-                </ul>
-                </div>
             </ul>
         </div>
     </nav>

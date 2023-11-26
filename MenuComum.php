@@ -22,7 +22,7 @@
 </head>
 <body>
     <header>
-        <a href="./index.html"> 
+        <a href="./index.php"> 
             <img class="imgLogoHeader" src="img/logo.png" alt="logotelecall">
         </a>
             <h2><?php echo $_SESSION['usuario']; ?></h2>

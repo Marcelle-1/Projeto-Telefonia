@@ -91,6 +91,10 @@ a.pure-button-primary {
  * I want to customize how my .pure-menu looks at the top of the page
  */
 
+.nav-mobile-logado{
+    display: none;
+}
+
 .home-menu {
     padding: 0.5em;
     text-align: center;
