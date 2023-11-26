@@ -23,7 +23,7 @@ include_once('conexao.php');
         echo "Erro ao cadastrar: " . $conn->error;
     }
 
-    
-    $conn->close();
 
+    $conn->close();
+    header('location:index.html');
 ?>
