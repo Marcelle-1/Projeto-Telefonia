@@ -24,6 +24,9 @@
         <a href="./index.html"> 
             <img class="imgLogoHeader" src="img/logo.png" alt="logotelecall">
         </a>
+        <div>
+            <a href="deslogar.php"><button>Desologar</button></a>
+        </div>
     </header>            
     <section class="container servicosCpaas">
         <h1>Serviços</h1>
