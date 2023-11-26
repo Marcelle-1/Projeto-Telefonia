@@ -24,8 +24,11 @@
                     <label for="Senha" id="senha"> Senha </label>
                     <input id="Senha" type="password" name="senha" placeholder="Senha" >
                 </div>
-                    <button onclick="limparcampos()" class="btn-limpar"> Limpar Campos </button>
-                    <button class="btn-login" type="submit" name="submit"> Entrar </button>  
+                <div class="btns">
+                        <!-- <button type="button" class="btn-login" name="submit"> Entrar </button> -->
+                        <input type="submit" name="submit" id="Submit" value="Entrar">
+                        <button type="button" onclick="limparCampos()" class="btn-limpar"> Limpar </button>
+                </div>  
                 </form> 
                 
             </div>
