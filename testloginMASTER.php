@@ -1,14 +1,12 @@
 <?php
     session_start();
-
-    print_r($_REQUEST);
-
-    if(isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha']))
-    {
+    
+    if(isset($_SESSION['usuario']) && isset($_SESSION['senha']))
+    {  
        
         include_once('conexao.php');
-        $usuario = $_POST['usuario'];
-        $senha = $_POST['senha'];
+        $usuario = $_SESSION['usuario'];
+        $senha = $_SESSION['senha'];
 
 
         $sql = "SELECT * FROM USUARIO WHERE NOME = '$usuario' and senha = '$senha'
@@ -16,9 +14,6 @@
 
 
         $result = $conn->query($sql);
-
-        print_r($sql);
-        print_r($result);
 
         if(mysqli_num_rows($result) < 1)
         {
@@ -32,11 +27,12 @@
             $_SESSION['usuario'] = $usuario;
             $_SESSION['senha'] = $senha;
             $_SESSION['MASTER'] = true;
-            header('Location: MenuMaster.php');
+           header('Location: MenuMaster.php');
         }
     }
     else
     {
         header('location: loginMaster.php');
     }
+
 ?>

@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha'])) {
-
+if(isset($_SESSION['usuario']) && isset($_SESSION['senha']))
+{
     include_once('conexao.php');
 
-    $usuario = $_POST['usuario'];
-    $senha = $_POST['senha'];
+    $usuario = $_SESSION['usuario'];
+    $senha = $_SESSION['senha'];
 
     $sql = "SELECT ID, NOME FROM USUARIO WHERE NOME = ? AND senha = ?";
     $stmt = $conn->prepare($sql);
@@ -32,7 +32,9 @@ if (isset($_POST['submit']) && !empty($_POST['usuario']) && !empty($_POST['senha
     $stmt->close();
     $conn->close();
 
-} else {
+} 
+else 
+{
     header('location: logincomum.php');
 }
 ?>

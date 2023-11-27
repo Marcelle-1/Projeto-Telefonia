@@ -15,21 +15,66 @@
         <div class="right-login"> 
             <div class="card-login">
                 <h1> LOGIN </h1>
-                <form action="testloginMASTER.php" method="POST">
-                <div class="textfield"> 
-                    <label for="Usuario" id="usuario"> Usuário </label>
-                    <input id="Usuario" type="text" name="usuario" placeholder="Usuário" >
-                </div>    
-                <div class="textfield"> 
-                    <label for="Senha" id="senha"> Senha </label>
-                    <input id="Senha" type="password" name="senha" placeholder="Senha" >
-                </div>
-                <div class="btns">
-                        <!-- <button type="button" class="btn-login" name="submit"> Entrar </button> -->
+                <?php
+                    session_start();
+                    include_once('conexao.php');
+       
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                        $usuario = $_POST["usuario"];
+                        $senha = $_POST["senha"];
+
+                        if (empty($usuario) || empty($senha)) {
+                            echo "<p style='color: red;'>Por favor, preencha todos os campos.</p>";
+                        } else {
+                            
+                            $usuario = $conn->real_escape_string($usuario);
+                            $senha = $conn->real_escape_string($senha);
+
+                            $consulta = "SELECT * FROM USUARIO WHERE NOME = '$usuario' AND SENHA = '$senha'";
+                            $resultado = $conn->query($consulta);
+
+                            if ($resultado->num_rows > 0) {
+                                $_SESSION['usuario'] = $_POST['usuario'];
+                                $_SESSION['senha'] = $_POST['senha'];
+                            
+                                header("Location: testloginMASTER.php", true, 303);
+                                exit;
+
+                            } else {
+                                echo "<p style='color: red;'>Usuário ou senha inválidos.</p>";
+                            }
+
+                            $conn->close();
+                        }
+                    }
+
+                ?>
+
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+
+                    <div class="textfield"> 
+                        <label for="Usuario" id="usuario"> Usuário </label>
+                        <input id="Usuario" type="text" name="usuario" placeholder="Usuário">
+                    </div>    
+
+                    <div class="textfield"> 
+                        <label for="Senha" id="senha"> Senha </label>
+                        <input id="Senha" type="password" name="senha" placeholder="Senha">
+                    </div>
+
+                    <div class="btns">
                         <input type="submit" name="submit" id="Submit" value="Entrar">
                         <button type="button" onclick="limparCampos()" class="btn-limpar"> Limpar </button>
-                </div>  
-                </form> 
+                    </div>
+                </form>
+
+                <script>
+                    function limparCampos() {
+                        document.getElementById("Usuario").value = "";
+                        document.getElementById("Senha").value = "";
+                    }
+                </script> 
                 
             </div>
         </div>
