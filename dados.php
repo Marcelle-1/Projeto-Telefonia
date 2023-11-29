@@ -25,5 +25,5 @@ include_once('conexao.php');
 
 
     $conn->close();
-    header('location:index.html');
+    header('location:index.php');
 ?>

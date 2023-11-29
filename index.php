@@ -67,7 +67,7 @@
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="Cadastrotelefonia.html">Cadastro</a></li>
-                <li><a href="MenuComum.php">Serviços</a></li>
+                <li><a href="#">Serviços</a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
         </div>

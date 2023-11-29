@@ -24,7 +24,7 @@
             <div class="input-group">
                 <div class="input-box"> 
                     <label for="nome"> Nome </label>
-                    <input id="nome" type="text" name="nome" placeholder="Digite seu nome" required>
+                    <input id="nome" type="text" name="nome" placeholder="Digite seu nome" maxlength="80" required>
                 </div>    
                 <div class="input-box"> 
                     <label for="dataNasc"> Data de Nascimento </label>
@@ -32,42 +32,42 @@
                 </div>  
                 <div class="gender-group"> 
                     <p>Sexo:</p>
-                    <input type="radio" id="sexo-f" name="sexo" value="F">
+                    <input type="radio" id="sexo-f" name="sexo" value="F" required>
                     <label for="sexo-f">Feminino</label><br>
-                    <input type="radio" id="sexo-m" name="sexo" value="M">
+                    <input type="radio" id="sexo-m" name="sexo" value="M" required>
                     <label for="sexo-m">Masculino</label>
                 </div>  
                 <div class="input-box"> 
                     <label for="nomem"> Nome Materno </label>
-                    <input id="nomem" type="text" name="nomem" placeholder="Digite seu nome materno">
+                    <input id="nomem" type="text" name="nomem" placeholder="Digite seu nome materno" maxlength="80">
                 </div>  
                 <div class="input-box"> 
                     <label for="cpf"> CPF </label>
-                    <input id="cpf" type="text" name="cpf" placeholder="Digite seu CPF" required>
+                    <input id="cpf" type="text" name="cpf" placeholder="Digite seu CPF" minlength="11" maxlength="11" required>
                 </div>  
                 <div class="input-box"> 
                     <label for="telefoneCelular"> Telefone Celular </label>
-                    <input id="telefoneCelular" type="tel" name="telefoneCelular" placeholder="(xx-xxxx-xxxx)" required>
+                    <input id="telefoneCelular" type="tel" name="telefoneCelular" placeholder="(xx-xxxx-xxxx)" minlength="11" maxlength="11" required>
                 </div>  
                 <div class="input-box"> 
                     <label for="telefone"> Telefone Fixo </label>
-                    <input id="telefone" type="tel" name="telefone" placeholder="(xx-xxxxxxxx)" required>
+                    <input id="telefone" type="tel" name="telefone" placeholder="(xx-xxxxxxxx)" minlength="8" maxlength="8" required>
                 </div>  
                 <div class="input-box"> 
                     <label for="endereco"> Endereço </label>
-                    <input id="endereco" type="text" name="endereco" placeholder="Digite seu endereço completo" required>
+                    <input id="endereco" type="text" name="endereco" placeholder="Digite seu endereço completo" maxlength="50" required>
                 </div>  
                 <div class="input-box"> 
                     <label for="login"> Login </label>
-                    <input id="login" type="text" name="login" placeholder="Digite um login" required>
+                    <input id="login" type="text" name="login" placeholder="Digite um login" maxlength="80" required>
                 </div>  
                 <div class="input-box"> 
                     <label for="senha"> Senha </label>
-                    <input id="senha" type="password" name="senha" placeholder="Digite a senha" required>
+                    <input id="senha" type="password" name="senha" placeholder="Digite a senha" maxlength="80" required>
                 </div>  
                 <div class="input-box"> 
                     <label for="cSenha"> Confirmar senha </label>
-                    <input id="cSenha" type="password" name="confirmpassword" placeholder="Confirme sua senha" required>
+                    <input id="cSenha" type="password" name="confirmpassword" placeholder="Confirme sua senha" maxlength="80" required>
                 </div>  
                 <div>
                 <!-- Botão para acionar modal para limpar campos-->
