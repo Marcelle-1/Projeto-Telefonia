@@ -98,6 +98,28 @@ body{
     text-decoration: none;
 }
 
+.btn
+{
+    margin: 20px;
+    padding: 10px 20px;
+}
+
+.continue-button {
+    text-align: center;
+    margin: 20px; /* Ajuste conforme necessário */
+}
+
+.submit {
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    border: none; /* Remove a borda padrão do input */
+    border-radius: 4px; /* Cantos arredondados */
+    cursor: pointer; /* Adiciona uma seta ao cursor quando passa sobre o botão */
+}
+
+
 .Login a{
     text-decoration: none;
 }
@@ -143,16 +165,14 @@ button{
 
     }
 
-    .input-group{
+    .input-group {
         flex-direction: column;
         overflow-y: scroll;
         flex-wrap: nowrap;
-        max-height: 10rem;
+        max-height: 40rem;
         padding-right: 5rem;
-        margin-top: 0.5rem;
-    }
+        margin-top: 0.5rem
  }
-
 
   /* pág erro */
   #erro {
@@ -165,3 +185,4 @@ button{
     background-color: lightgrey;
  }
 
+}

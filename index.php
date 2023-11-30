@@ -66,7 +66,7 @@
             </ul>
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="Cadastrotelefonia.html">Cadastro</a></li>
+                <li><a href="Cadastrotelefonia.php">Cadastro</a></li>
                 <li><a href="#">Serviços</a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
@@ -83,7 +83,7 @@
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </p>
         <p>
-            <a href="Cadastrotelefonia.html" class="pure-button pure-button-primary">Cadastrar</a>
+            <a href="Cadastrotelefonia.php" class="pure-button pure-button-primary">Cadastrar</a>
         </p>
     </div>
 </div>
