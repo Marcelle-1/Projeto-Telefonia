@@ -1,29 +1,61 @@
 <?php
+session_start();
 include_once('conexao.php');
 
-    
-    $nome = $_POST['nome'];
-    $dataNasc = $_POST['dataNasc'];
-    $sexo = $_POST['sexo'];
-    $nomem = $_POST['nomem'];
-    $cpf = $_POST['cpf'];
-    $telefoneCelular = $_POST['telefoneCelular'];
-    $telefone = $_POST['telefone'];
-    $endereco = $_POST['endereco'];
-    $login = $_POST['login'];
-    $senha = $_POST['senha'];
+function deixarApenasNumeros($string) {
+    return preg_replace('/[^0-9]/', '', $string);
+}
 
-    
-    $sql = "INSERT INTO USUARIO (NOME, DATA_NASC, SEXO, NOME_M, CPF, TEL_CEL, TEL_FIX, ENDERECO, SENHA, TIPO_USUARIO, STATUS_USUARIO, DT_ULT_VAL)
-            VALUES ('$nome', '$dataNasc', '$sexo', '$nomem', '$cpf', '$telefoneCelular', '$telefone', '$endereco', '$senha', 'COMUM', 'ATIVO', current_timestamp)";
+$nome = $_SESSION['nome'];
+$senha = $_SESSION['senha'];
+$dataNasc = $_SESSION['dataNasc'];
+$sexo = $_SESSION['sexo'];
+$nomem = $_SESSION['nomem'];
+$cpf = deixarApenasNumeros($_SESSION['cpf']); // Limpa o CPF
+$telefoneCelular = $_SESSION['telefoneCelular'];
+$telefone = $_SESSION['telefone'];
+$endereco = $_SESSION['endereco'];
+$login = $_SESSION['login'];
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Cadastro realizado com sucesso!";
-    } else {
-        echo "Erro ao cadastrar: " . $conn->error;
-    }
+$sql = "INSERT INTO USUARIO 
+    (
+        NOME, 
+        DATA_NASC, 
+        SEXO, 
+        NOME_M, 
+        CPF, 
+        TEL_CEL, 
+        TEL_FIX, 
+        ENDERECO, 
+        SENHA, 
+        TIPO_USUARIO, 
+        STATUS_USUARIO, 
+        DT_ULT_VAL
+    )
+    VALUES 
+    (
+        '$nome', 
+        '$dataNasc', 
+        '$sexo', 
+        '$nomem', 
+        '$cpf', 
+        '$telefoneCelular', 
+        '$telefone', 
+        '$endereco', 
+        '$senha', 
+        'COMUM', 
+        'ATIVO', 
+        current_timestamp
+    )";
 
+print_r($_SESSION);
 
-    $conn->close();
-    header('location:index.php');
+if ($conn->query($sql) === TRUE) {
+    echo "Cadastro realizado com sucesso!";
+} else {
+    echo "Erro ao cadastrar: " . $conn->error;
+}
+
+$conn->close();
+header('location:index.php');
 ?>
