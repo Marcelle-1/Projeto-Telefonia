@@ -1,11 +1,3 @@
-<script>
-    
-    function limparLocalStorage() {
-            localStorage.clear();
-        }
-
-</script>
-
 <?php
 function validarCPF($cpf = null) {
 
@@ -145,7 +137,13 @@ function validarCPF($cpf = null) {
                             $_SESSION['login'] = $_POST['login'] ;
                             $_SESSION['senha'] = $_POST['senha'] ;
                             $_SESSION['confirmpassword'] = $_POST['confirmpassword'] ;    
-                                             
+                                   
+                            echo '<script>
+                                    function limparLocalStorage() {
+                                        localStorage.clear();
+                                    }
+                                </script>';
+
                             echo ' <script> limparLocalStorage(); </script> ';
 
                             header('location: dados.php');

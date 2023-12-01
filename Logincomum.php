@@ -70,6 +70,9 @@
                         <input type="submit" name="submit" id="Submit" value="Entrar">
                         <button type="button" onclick="limparCampos()" class="btn-limpar"> Limpar </button>
                     </div>
+                    <div class="div-anchor">
+                        <a class="anchor" href="cadastrotelefonia.php"> Não tem uma conta? </a>
+                    </div>
                 </form>
 
                 <script>

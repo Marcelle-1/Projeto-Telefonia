@@ -154,6 +154,17 @@ img{
     width: 45%;
 }
 
+.div-anchor{
+    margin-top: 20px;   
+}
+
+.anchor{
+    text-decoration: none;
+    color: cadetblue;
+    font-size: 20px;
+}
+
+
 @media only screen and (max-width:950px){
     .card-login{
         width: 85%;
