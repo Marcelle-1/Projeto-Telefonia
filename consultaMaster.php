@@ -65,6 +65,7 @@
                         <th>Nome</th>
                         <th>Sexo</th>
                         <th>Nome_M</th>
+                        <th>Login</th>
                         <th>Senha</th>
                         <th>Tel_cel</th>
                         <th>Tel_fix</th>
@@ -82,6 +83,7 @@
                         <td>" . $row["NOME"] . "</td>
                         <td>" . $row["SEXO"] . "</td>
                         <td>" . $row["NOME_M"] . "</td>
+                        <td>" . $row["LOGIN"] . "</td>
                         <td>" . $row["SENHA"] . "</td>
                         <td>" . $row["TEL_CEL"] . "</td>
                         <td>" . $row["TEL_FIX"] . "</td>

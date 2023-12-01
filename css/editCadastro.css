@@ -14,8 +14,13 @@ body{
     background: #ffffff;
 }
 
+.error-message {
+    color: red;
+    display: none; /* Inicialmente, esconda a mensagem de erro */
+  }
+
 .container{
-    width: 80%;
+    width: 80vw;
     height: 100vh;
     display: flex;
     justify-content: space-around;
@@ -156,7 +161,7 @@ input[type='reset'] {
     
  @media screen and (max-width:1360px){
     .container{
-        width: 90%;
+        width: 95vw;
         height: 90vh;
 
     }
