@@ -11,7 +11,7 @@ $senha = $_SESSION['senha'];
 $dataNasc = $_SESSION['dataNasc'];
 $sexo = $_SESSION['sexo'];
 $nomem = $_SESSION['nomem'];
-$cpf = deixarApenasNumeros($_SESSION['cpf']); // Limpa o CPF
+$cpf = deixarApenasNumeros($_SESSION['cpf']);
 $telefoneCelular = $_SESSION['telefoneCelular'];
 $telefone = $_SESSION['telefone'];
 $endereco = $_SESSION['endereco'];
@@ -26,7 +26,8 @@ $sql = "INSERT INTO USUARIO
         CPF, 
         TEL_CEL, 
         TEL_FIX, 
-        ENDERECO, 
+        ENDERECO,
+        LOGIN, 
         SENHA, 
         TIPO_USUARIO, 
         STATUS_USUARIO, 
@@ -41,14 +42,13 @@ $sql = "INSERT INTO USUARIO
         '$cpf', 
         '$telefoneCelular', 
         '$telefone', 
-        '$endereco', 
+        '$endereco',
+        '$login', 
         '$senha', 
         'COMUM', 
         'ATIVO', 
         current_timestamp
     )";
-
-print_r($_SESSION);
 
 if ($conn->query($sql) === TRUE) {
     echo "Cadastro realizado com sucesso!";

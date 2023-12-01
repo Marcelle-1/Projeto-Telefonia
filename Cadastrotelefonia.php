@@ -1,48 +1,43 @@
-<?php
-function validarCPF($cpf = null) {
+<script>
+    function validarCPF(cpf) {
+    
+    cpf = cpf.replace(/\D/g, '');
 
-	if(empty($cpf)) {
-        echo 'chego n';
-		return false;
+    if (cpf.length !== 11) {
+        return false;
+    }
 
-	}
+    if (/^(\d)\1+$/.test(cpf)) {
+        return false;
+    }
 
-	$cpf = preg_replace("/[^0-9]/", "", $cpf);
-	$cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
-	
-	if (strlen($cpf) != 11) {
-		return false;
-	}
+    var soma = 0;
+    for (var i = 0; i < 9; i++) {
+        soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
 
-	else if ($cpf == '00000000000' || 
-		$cpf == '11111111111' || 
-		$cpf == '22222222222' || 
-		$cpf == '33333333333' || 
-		$cpf == '44444444444' || 
-		$cpf == '55555555555' || 
-		$cpf == '66666666666' || 
-		$cpf == '77777777777' || 
-		$cpf == '88888888888' || 
-		$cpf == '99999999999') {
-		return false;
-	
-	 } else {   
-		
-		for ($t = 9; $t < 11; $t++) {
-			
-			for ($d = 0, $c = 0; $c < $t; $c++) {
-				$d += $cpf[$c] * (($t + 1) - $c);
-			}
-			$d = ((10 * $d) % 11) % 10;
-			if ($cpf[$c] != $d){
-				return false;
-			}
-		}
+    var resto = 11 - (soma % 11);
+    var digito1 = resto === 10 || resto === 11 ? 0 : resto;
 
-		return true;
-	}
+    if (digito1 !== parseInt(cpf.charAt(9))) {
+        return false;
+    }
+
+    soma = 0;
+    for (var j = 0; j < 10; j++) {
+        soma += parseInt(cpf.charAt(j)) * (11 - j);
+    }
+
+    resto = 11 - (soma % 11);
+    var digito2 = resto === 10 || resto === 11 ? 0 : resto;
+
+    if (digito2 !== parseInt(cpf.charAt(10))) {
+        return false;
+    }
+
+    return true;
 }
-?>
+</script>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -69,7 +64,10 @@ function validarCPF($cpf = null) {
                 <div class="title"> 
                 <h1> Cadastre-se </h1>    
                 </div>
+                
             </div>    
+
+            <span id="error-message" class="error-message"></span>
 
             <?php
                     session_start();
@@ -77,53 +75,6 @@ function validarCPF($cpf = null) {
 
        
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-                        if (empty($_POST['nome']) || empty($_POST['dataNasc']) || 
-                            empty($_POST['sexo']) || empty($_POST['nomem']) || 
-                            empty($_POST['cpf']) || empty($_POST['telefoneCelular']) ||
-                            empty($_POST['telefone']) || empty($_POST['endereco']) ||
-                            empty($_POST['login']) || empty($_POST['senha']) )
-                        {
-                            echo "<p style='color: red;'>Por favor, preencha todos os campos.</p>";
-                        }
-                        elseif (strlen($_POST['nome']) > 80)
-                        {
-                            echo "<p style='color: red;'>O campo nome deve ter menos de 80 caracteres.</p>";
-                        }
-                        elseif (strlen($_POST['nomem']) > 80)
-                        {
-                            echo "<p style='color: red;'>O campo nome materno deve ter menos de 80 caracteres.</p>";
-                        }
-                        elseif (!validarCPF($_POST['cpf'])) {
-                            echo "<p style='color: red;'>O CPF inserido é inválido.</p>";
-                        }
-                        elseif (strlen($_POST['telefoneCelular']) > 11 || strlen($_POST['telefoneCelular']) < 11)
-                        {
-                            echo "<p style='color: red;'>O telefone Celular é inválido.</p>";
-                        }
-                        elseif (strlen($_POST['telefone']) > 8 || strlen($_POST['telefone']) < 8)
-                        {
-                            echo "<p style='color: red;'>O telefone fixo é inválido.</p>";
-                        }
-                        elseif (strlen($_POST['endereco']) > 80)
-                        {
-                            echo "<p style='color: red;'>O campo endereço deve ter menos de 80 caracteres.</p>";
-                        }
-                        elseif (strlen($_POST['login']) > 80)
-                        {
-                            echo "<p style='color: red;'>O campo login deve ter menos de 80 caracteres.</p>";
-                        }
-                        elseif (strlen($_POST['senha']) > 80)
-                        {
-                            echo "<p style='color: red;'>O campo senha deve ter menos de 80 caracteres.</p>";
-                        }
-                        elseif ($_POST['senha'] != $_POST['confirmpassword'])
-                        {
-                            echo "<p style='color: red;'>As senhas devem ser iguais.</p>";
-                        }
-                        else
-                        {
 
                             $_SESSION["nome"] = $_POST['nome'] ;
                             $_SESSION["senha"] = $_POST['senha'] ;
@@ -138,19 +89,9 @@ function validarCPF($cpf = null) {
                             $_SESSION['senha'] = $_POST['senha'] ;
                             $_SESSION['confirmpassword'] = $_POST['confirmpassword'] ;    
                                    
-                            echo '<script>
-                                    function limparLocalStorage() {
-                                        localStorage.clear();
-                                    }
-                                </script>';
-
-                            echo ' <script> limparLocalStorage(); </script> ';
-
                             header('location: dados.php');
                             exit();
                         }
-                        
-                    }
 
                 ?>
 
@@ -225,12 +166,13 @@ function validarCPF($cpf = null) {
                 </div>
             </div>
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
-                    Limpar campos
-            </button>
+            
 
             <div class="continue-button"> 
+
                 <input type="submit" value="Cadastrar" class="submit">
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">Limpar campos</button>
             </div>
         </form>
             <div class="Login">
@@ -239,38 +181,303 @@ function validarCPF($cpf = null) {
         </div>
     </div>
 
-   <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            
-            document.getElementById('nome').value = localStorage.getItem('nome') || '';
-            document.getElementById('dataNasc').value = localStorage.getItem('dataNasc') || '';
-            var sexo = localStorage.getItem('sexo');
-            if (sexo) {
-                document.querySelector('input[name="sexo"][value="' + sexo + '"]').checked = true;
-            }
-            document.getElementById('nomem').value = localStorage.getItem('nomem') || '';
-            document.getElementById('cpf').value = localStorage.getItem('cpf') || '';
-            document.getElementById('telefoneCelular').value = localStorage.getItem('telefoneCelular') || '';
-            document.getElementById('telefone').value = localStorage.getItem('telefone') || '';
-            document.getElementById('endereco').value = localStorage.getItem('endereco') || '';
-            document.getElementById('login').value = localStorage.getItem('login') || '';
-  
-            document.querySelector('.submit').addEventListener('click', function () {
-                localStorage.setItem('nome', document.getElementById('nome').value);
-                localStorage.setItem('dataNasc', document.getElementById('dataNasc').value);
-                var selectedSexo = document.querySelector('input[name="sexo"]:checked');
-                if (selectedSexo) {
-                    localStorage.setItem('sexo', selectedSexo.value);
-                }
-                localStorage.setItem('nomem', document.getElementById('nomem').value);
-                localStorage.setItem('telefoneCelular', document.getElementById('telefoneCelular').value);
-                localStorage.setItem('telefone', document.getElementById('telefone').value);
-                localStorage.setItem('endereco', document.getElementById('endereco').value);
-                localStorage.setItem('login', document.getElementById('login').value);
 
+        <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('confirm').addEventListener('submit', function (event) {
+
+                var errorMessage = document.getElementById('error-message');
+
+                function clearErrors() {
+                    var errorMessages = document.querySelectorAll('.error-message');
+                    errorMessages.forEach(function (errorMessage) {
+                        errorMessage.textContent = '';
+                    });
+                }
+
+                var nome = document.getElementById('nome').value;
+                if (nome.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, preencha o campo Nome.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('nome').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('nome').style.border = ''; 
+                }
+
+                var dataNasc = document.getElementById('dataNasc').value;
+                if (dataNasc.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, preencha a data de nascimento.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('dataNasc').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('dataNasc').style.border = ''; 
+                }
+
+                var sexoF = document.getElementById('sexo-f');
+                var sexoM = document.getElementById('sexo-m');
+                if (!sexoF.checked && !sexoM.checked) {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, selecione um sexo.';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                }
+                
+
+                var nomem = document.getElementById('nomem').value;
+                if (nomem.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, preencha o nome materno.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('nomem').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('nomem').style.border = ''; 
+                }
+
+                var cpf = document.getElementById('cpf').value;
+                if (cpf.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, preencha o CPF.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('cpf').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('cpf').style.border = ''; 
+                }
+
+                    cpf = cpf.replace(/\D/g, '');
+
+                    if (!validarCPF(cpf)) {
+                        event.preventDefault();
+                        errorMessage.textContent = 'O CPF é inválido, insira corretamente.';
+                        errorMessage.style.display = 'block';
+                        document.getElementById('cpf').style.border = '2px solid #ff8e8e';
+                        return;
+                    }
+                    else{
+                        errorMessage.textContent = '';
+                        errorMessage.style.display = 'none';
+                        document.getElementById('cpf').style.border = ''; 
+                    }   
+
+                var telefoneCelular = document.getElementById('telefoneCelular').value;
+                if (telefoneCelular.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, insira o telefone celular.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('telefoneCelular').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('telefoneCelular').style.border = ''; 
+                }
+
+                if (telefoneCelular.length !== 16) {
+                    console.log(telefoneCelular);
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, insira o telefone celular corretamente.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('telefoneCelular').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('telefoneCelular').style.border = ''; 
+                }
+
+                var telefoneFixo = document.getElementById('telefone').value;
+                if (telefoneFixo.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, insira o telefone fixo.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('telefone').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('telefone').style.border = ''; 
+                }
+
+                if (telefoneFixo.length !== 16) {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, insira o telefone fixo corretamente.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('telefone').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('telefone').style.border = ''; 
+                }
+
+                var endereco = document.getElementById('endereco').value;
+                if (endereco.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, preencha o endereço.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('endereco').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('endereco').style.border = ''; 
+                }
+
+                var login = document.getElementById('login').value;
+                if (login.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, preencha o login.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('login').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('login').style.border = ''; 
+                }
+
+                var senha = document.getElementById('senha').value;
+                if (senha.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, preencha a senha.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('senha').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('senha').style.border = ''; 
+                }
+
+                var cSenha = document.getElementById('cSenha').value;
+                if (cSenha.trim() === '') {
+                    event.preventDefault();
+                    errorMessage.textContent = 'Por favor, preencha o campo confirmar senha.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('cSenha').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('cSenha').style.border = ''; 
+                }
+
+                if (senha !== cSenha) {
+                    event.preventDefault();
+                    errorMessage.textContent = 'As senhas devem ser iguais.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('senha').style.border = '2px solid #ff8e8e';
+                    document.getElementById('cSenha').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('senha').style.border = '';
+                    document.getElementById('cSenha').style.border = '';  
+                }
+
+                var camposObrigatorios = ['nome', 'dataNasc', 'sexo-f', 'sexo-m', 'nomem', 'cpf', 'telefoneCelular', 'telefone', 'endereco', 'login', 'senha', 'cSenha'];
+                for (var i = 0; i < camposObrigatorios.length; i++) {
+                    var campo = document.getElementById(camposObrigatorios[i]);
+                    if (campo.type === 'radio') {
+
+                        var radioGroup = document.getElementsByName(campo.name);
+                        var radioSelected = false;
+                        for (var j = 0; j < radioGroup.length; j++) {
+                            if (radioGroup[j].checked) {
+                                radioSelected = true;
+                                break;
+                            }
+                        }
+                        if (!radioSelected) {
+                            alert('Por favor, preencha todos os campos obrigatórios.');
+                            event.preventDefault();
+                            return;
+                        }
+                    } else {
+
+                        if (campo.value.trim() === '') {
+                            alert('Por favor, preencha todos os campos obrigatórios.');
+                            event.preventDefault();
+                            return;
+                        }
+                    }
+                }
+
+                if (!/^[a-zA-Z\s']{15,80}$/.test(nome)) {
+                    event.preventDefault();
+                    errorMessage.textContent = 'O campo Nome deve ter entre 15 e 80 caracteres alfabéticos.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('nome').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('nome').style.border = ''; 
+                }
+
+                if (!/^[a-zA-Z0-9]{6}$/.test(login)) {
+                    event.preventDefault();
+                    errorMessage.textContent = 'O campo Login deve ter exatamente 6 caracteres alfabéticos.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('login').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('login').style.border = ''; 
+                }
+
+                if (!/^[a-zA-Z0-9]{8}$/.test(senha)) {
+                    event.preventDefault();
+                    errorMessage.textContent = 'O campo Senha deve ter exatamente 8 caracteres alfabéticos.';
+                    errorMessage.style.display = 'block';
+                    document.getElementById('senha').style.border = '2px solid #ff8e8e';
+                    return;
+                }
+                else{
+                    errorMessage.textContent = '';
+                    errorMessage.style.display = 'none';
+                    document.getElementById('senha').style.border = ''; 
+                }
+ 
             });
         });
-    </script>
+                
+        </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>
@@ -278,11 +485,24 @@ function validarCPF($cpf = null) {
         $("#btn-sim").click(function() {
             $("#confirm").trigger('reset');
             $("#modalExemplo").modal('hide');
-            localStorage.clear();
           });
     
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+
+                var telefoneCelularInput = document.getElementById('telefoneCelular');
+                $(telefoneCelularInput).inputmask('(+55)99-99999999');
+
+                var telefoneFixoInput = document.getElementById('telefone');
+                $(telefoneFixoInput).inputmask('(+55)99-99999999');
+
+                var cpfInput = document.getElementById('cpf');
+                $(cpfInput).inputmask('99999999999');
+            });
+        </script>
 </body>
 </html>
