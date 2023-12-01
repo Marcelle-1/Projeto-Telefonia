@@ -9,7 +9,7 @@
         $senha = $_SESSION['senha'];
 
 
-        $sql = "SELECT * FROM USUARIO WHERE NOME = '$usuario' and senha = '$senha'
+        $sql = "SELECT * FROM USUARIO WHERE LOGIN = '$usuario' and SENHA = '$senha'
             and TIPO_USUARIO = 'MASTER'";
 
 

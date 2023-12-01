@@ -8,7 +8,7 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['senha']))
     $usuario = $_SESSION['usuario'];
     $senha = $_SESSION['senha'];
 
-    $sql = "SELECT ID, NOME FROM USUARIO WHERE NOME = ? AND senha = ?";
+    $sql = "SELECT ID, LOGIN FROM USUARIO WHERE LOGIN = ? AND SENHA = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $usuario, $senha);
     $stmt->execute();

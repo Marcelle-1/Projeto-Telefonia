@@ -31,7 +31,7 @@
                             $usuario = $conn->real_escape_string($usuario);
                             $senha = $conn->real_escape_string($senha);
 
-                            $consulta = "SELECT * FROM USUARIO WHERE NOME = '$usuario' AND SENHA = '$senha'";
+                            $consulta = "SELECT * FROM USUARIO WHERE LOGIN = '$usuario' AND SENHA = '$senha'";
                             $resultado = $conn->query($consulta);
 
                             if ($resultado->num_rows > 0) {
@@ -42,7 +42,7 @@
                                 exit;
 
                             } else {
-                                echo "<p style='color: red;'>Usuário ou senha inválidos.</p>";
+                                echo "<p style='color: red;'>Login ou senha inválida.</p>";
                             }
 
                             $conn->close();
@@ -54,8 +54,8 @@
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
                     <div class="textfield"> 
-                        <label for="Usuario" id="usuario"> Usuário </label>
-                        <input id="Usuario" type="text" name="usuario" placeholder="Usuário">
+                        <label for="Usuario" id="usuario"> Login </label>
+                        <input id="Usuario" type="text" name="usuario" placeholder="Login">
                     </div>    
 
                     <div class="textfield"> 
