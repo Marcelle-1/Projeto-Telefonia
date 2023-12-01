@@ -12,16 +12,18 @@ if (isset($_POST['update'])) {
     $sexo = $_POST["sexo"];
     $nome_m = $_POST["nomem"];
     $senha = $_POST["senha"];
-    $tel_cel = $_POST["telefonecelular"];
+    $tel_cel = $_POST["telefoneCelular"];
     $tel_fix = $_POST["telefone"];
     $endereco = $_POST["endereco"];
     $data_nasc = $_POST["dataNasc"];
+    $login = $_POST['login'];
 
     $sqlUpdate = "UPDATE USUARIO SET 
         CPF='$cpf',
         NOME='$nome',
         SEXO='$sexo',
         NOME_M='$nome_m',
+        LOGIN='$login',
         SENHA='$senha',
         TEL_CEL='$tel_cel',
         TEL_FIX='$tel_fix',
