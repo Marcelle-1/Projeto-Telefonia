@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if(isset($_SESSION['usuario']) && isset($_SESSION['senha']))
+if(isset($_SESSION['login']) && isset($_SESSION['senha']))
 {
     include_once('conexao.php');
 
-    $usuario = $_SESSION['usuario'];
+    $usuario = $_SESSION['login'];
     $senha = $_SESSION['senha'];
 
     $sql = "SELECT ID, LOGIN FROM USUARIO WHERE LOGIN = ? AND SENHA = ?";

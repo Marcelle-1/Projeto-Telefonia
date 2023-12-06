@@ -37,10 +37,10 @@
                             $resultado = $conn->query($consulta);
 
                             if ($resultado->num_rows > 0) {
-                                $_SESSION['usuario'] = $_POST['usuario'];
+                                $_SESSION['login'] = $_POST['usuario'];
                                 $_SESSION['senha'] = $_POST['senha'];
                             
-                                header("Location: testlogin.php", true, 303);
+                                header("Location: 2FA.php", true, 303);
                                 exit;
 
                             } else {
