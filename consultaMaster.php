@@ -50,7 +50,14 @@
 <!--Main-->
     <main>
 
+    
+
     <div class="div_pesquisa">
+        
+        <button class="button-download" onclick="downloadPDF()">
+            Baixar PDF
+        </button>
+
         <input class="caixa_pesquisa" type="text" name="pesquisar" id="pesquisar" value="<?php if (!isset($_GET['search'])){ echo ""; }else{echo $_GET['search'];}; ?>" placeholder="Pesquise aqui..">
     </div>
 
@@ -126,6 +133,25 @@
         window.location = 'consultaMaster.php?search='+search.value;
     }
 </script>
+
+<script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+<script>
+    function downloadPDF() {
+        // Obtém o conteúdo HTML da tabela
+        var tableContent = document.querySelector('.tabela_dados').outerHTML;
+
+        // Converte a tabela HTML em um arquivo PDF
+        html2pdf(tableContent, {
+            margin: 10,
+            filename: 'consulta_usuarios.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a1', orientation: 'portrait' }
+        });
+    }
+</script>
+</body>
+
 
 <div class="footer l-box is-center">
         Por Marcelle, Fernanda e Caio

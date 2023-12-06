@@ -81,6 +81,16 @@ body {
     width: 100%;
 }
 
+.button-download {
+    background-color: #4c74af;
+    color: white;
+    margin: 48px;
+    font-size: 17px;
+    padding: 0px 40px 0px 40px;
+    border: none;
+    border-radius: 5px;
+}
+
 .caixa_pesquisa{
     width: 40%;
     height: 40px;
@@ -148,10 +158,10 @@ tr{
 
 @media screen and (max-width:540px)
 {
-    #nav-mobile{
+
+    .brand-logo {
         display: none;
     }
-
     .header{
         display: flex;
         justify-content: center;
@@ -159,11 +169,31 @@ tr{
     }
 
     .caixa_pesquisa{
-        width: 80%;
+        width: 89%;
+        margin: 10px 10px 10px 10px;
         height: 40px;
+    }
+
+    .div_pesquisa{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column-reverse;
     }
 
     .responsive_table{
         margin: 0;
     }
+
+    .button-download {
+        background-color: #4c74af;
+        cursor: pointer;
+        color: white;
+        margin: 48px;
+        font-size: 17px;
+        padding: 22px 40px 22px 40px;
+        border: none;
+        border-radius: 5px;
+    }   
+
 }
