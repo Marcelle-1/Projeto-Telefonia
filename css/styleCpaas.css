@@ -233,6 +233,7 @@ footer{
 .header{
     background-color: black;
     height: 70px;
+    width: 100%;
 }
 
 #nav-mobile-logado{
@@ -241,7 +242,7 @@ footer{
 
 #header_telefonia{
     color: white;
-    width: 60%;
+    width: 80%;
     display: flex;
     align-items: center;
     font-size: 30px;
@@ -249,7 +250,7 @@ footer{
 
 #lista_usuario>a{
     color: white;
-    font-size: 20px;
+    font-size: 1rem;
 }
 
 #lista_usuario{

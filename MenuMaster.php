@@ -25,13 +25,15 @@
 </head>
 <body>
     <header>
-        <a href="./index.php"> 
-            <img class="imgLogoHeader" src="img/logo.png" alt="logotelecall">
-        </a>
-        <div>
-            <a href="deslogar.php"><button>Desologar</button></a>
-            <a href="consultaMaster.php"><button>Consulta Master</button></a>
-        </div>
+        <div class="header">
+            <ul id="nav-mobile-logado" class="lista_header">
+                <a id="header_telefonia" href="index.php" class="brand-logo">Telefonia</a>
+                <li id="lista_usuario" ><a href="perfilcomum.php"><?php echo $_SESSION['usuario']?></a></li>
+                <li id="lista_usuario" ><a href="consultaMaster.php">Consulta</a></li>
+                <li id="lista_usuario" ><a href="deslogar.php">Deslogar</a></li>
+                <li id="lista_usuario" ><a href="index.php">Menu</a></li>
+            </ul>
+        </div> 
     </header>            
     <section class="container servicosCpaas">
         <h1>Serviços</h1>

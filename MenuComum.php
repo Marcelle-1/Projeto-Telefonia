@@ -28,7 +28,7 @@
                 <a id="header_telefonia" href="index.php" class="brand-logo">Telefonia</a>
                 <li id="lista_usuario" ><a href="perfilcomum.php"><?php echo $_SESSION['usuario']?></a></li>
                 <li id="lista_usuario" ><a href="deslogar.php">Deslogar</a></li>
-                <li id="lista_usuario" ><a href="MenuComum.php">Menu</a></li>
+                <li id="lista_usuario" ><a href="index.php">Menu</a></li>
             </ul>
         </div>            
 
