@@ -1,4 +1,6 @@
+create database mydb;
 use mydb;
+
 create table USUARIO
 (
 ID mediumint not null auto_increment primary key, 
@@ -28,3 +30,15 @@ values
 (77777777777 ,'Rafaela da silva sei la','M','fulana da silva sei la','login8', '123senha', '(+55)12-31231231','(+55)44-34434312','Rua - sei la das quantas', 'ATIVO', current_timestamp, '1997-05-15','COMUM'),
 (66666666666 ,'Paula da silva sei la','F','fulana da silva sei la','login9', '123senha', '(+55)12-31231231','(+55)44-34434312','Rua - sei la das quantas', 'ATIVO', current_timestamp, '1997-05-15','COMUM'),
 (3333333333 ,'admin da silva sei la','F','fulana da silva sei la','admin1', '123senha', '(+55)12-31231231','(+55)44-34434312','Rua - sei la das quantas', 'ATIVO', current_timestamp, '1997-05-15','MASTER');
+
+create table TABELA_TIPOS_USUARIO
+(
+TIPO_USUARIO char(6) primary key,
+TIPO_DESC char(100) not null
+);
+
+insert into TABELA_TIPOS_USUARIO values 
+('COMUM', 'usuario comum'),
+('MASTER', 'usuario master');
+
+alter table USUARIO add constraint FK_TIPOUSUARIO foreign key (TIPO_USUARIO) references TABELA_TIPOS_USUARIO (TIPO_USUARIO);

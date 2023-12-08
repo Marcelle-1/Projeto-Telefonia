@@ -33,8 +33,6 @@
                                 $sqlselect2 = "SELECT NOME_M FROM USUARIO WHERE ID = '$idUsuario'";
                                 $result2 = $conn->query($sqlselect2);
 
-                                    print_r($result2);
-
                                 if ($result2->num_rows > 0) {
                                     $row2 = $result2->fetch_assoc();
                                     $nome_m = $row2['NOME_M'];

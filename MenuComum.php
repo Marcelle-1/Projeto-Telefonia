@@ -21,17 +21,17 @@
     <link rel="stylesheet" href="./css/styleCpaas.css">
 </head>
 <body>
-    <header>
-        <a href="./index.php"> 
-            <img class="imgLogoHeader" src="img/logo.png" alt="logotelecall">
-        </a>
-            <h2><?php echo $_SESSION['usuario']; ?></h2>
-        <div>
+
+        <div class="header">
             
-            <a href="perfilcomum.php"><button>Perfil</button></a>
-            <a href="deslogar.php"><button>Desologar</button></a>
-        </div>
-    </header>            
+            <ul id="nav-mobile-logado" class="lista_header">
+                <a id="header_telefonia" href="index.php" class="brand-logo">Telefonia</a>
+                <li id="lista_usuario" ><a href="perfilcomum.php"><?php echo $_SESSION['usuario']?></a></li>
+                <li id="lista_usuario" ><a href="deslogar.php">Deslogar</a></li>
+                <li id="lista_usuario" ><a href="MenuComum.php">Menu</a></li>
+            </ul>
+        </div>            
+
     <section class="container servicosCpaas">
         <h1>Serviços</h1>
         <div class="servicos">
