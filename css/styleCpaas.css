@@ -257,3 +257,15 @@ footer{
     display: flex;
     align-items: center;
 }
+
+.container{
+    max-width: none;
+    width: 100%;
+}
+
+@media screen and (max-width:1071px)
+{
+    #header_telefonia{
+        display: none;
+    }
+}
