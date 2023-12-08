@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <style>
         <?php
            
@@ -58,6 +59,8 @@
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo"> Telefonia </a>
+
+            <a class="sidenav-trigger" href="#" data-target="navMobile"><i class="material-icons">menu</i></a>
             
             <ul id="nav-mobile-logado" class="right hide-on-med-and-down">
                 <li><a href="perfilcomum.php"><?php echo "Olá, " . $_SESSION['usuario']?></a></li>
@@ -70,10 +73,20 @@
                 <li><a href="#">Serviços</a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
-        </div>
+            </ul>
+
+            <ul class="sidenav" id="navMobile" >
+                <li><a href="Logincomum.php">Login Comum</a></li>
+                <li><a href="LoginMaster.php">Login Master</a></li>
             </ul>
         </div>
     </nav>
+    <!-- <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+    </ul> -->
 
 
 
@@ -173,7 +186,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
     $( document ).ready(
-        $(".dropdown-trigger").dropdown())
+        $(".dropdown-trigger").dropdown(),
+        $('.sidenav').sidenav())
 </script>
 </body>
 </html>
