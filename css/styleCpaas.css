@@ -179,19 +179,20 @@ footer{
 }
 .servicosCpaas h1{
     font-size: 40px;
-    color: #3580db;
+    color: #2196F3;
+    padding: 5px;
 }
 .utilizacoes h1{
     font-size: 40px;
-    color: #3580db;
+    color: #2196F3;
 }
 .imgServicos {
     width: 250px;
     height: 250px;
     float: left;
-    margin: 20px 10px ;
+    margin: 20px 10px;
     border-radius: 50%;
-    background: #a80802;
+    background: rgb(47, 88, 165);
     box-shadow: 2px 2px 3px #333;
 }
 .servicos {

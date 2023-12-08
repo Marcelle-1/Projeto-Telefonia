@@ -176,7 +176,7 @@
             </div>
         </form>
             <div class="Login">
-                <p> Entrar como: <a href="LoginMaster.html"> Usuário Master </a> ou <a href="Logincomum.php"> Comum </a> </p>
+                <p> Entrar como: <a href="LoginMaster.php"> Usuário Master </a> ou <a href="Logincomum.php"> Comum </a> </p>
             </div>
         </div>
     </div>

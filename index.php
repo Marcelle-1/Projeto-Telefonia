@@ -57,10 +57,10 @@
     </ul>
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Telefonia</a>
+            <a href="#" class="brand-logo"> Telefonia </a>
             
             <ul id="nav-mobile-logado" class="right hide-on-med-and-down">
-                <li><a href="perfilcomum.php"><?php echo $_SESSION['usuario']?></a></li>
+                <li><a href="perfilcomum.php"><?php echo "Olá, " . $_SESSION['usuario']?></a></li>
                 <li><a href="deslogar.php">Deslogar</a></li>
                 <li><a href="MenuComum.php">Menu</a></li>
             </ul>
@@ -103,8 +103,28 @@
                     
                 </p>
             </div>
-            
-
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-mobile"></i>
+                    Responsive Layouts
+                </h3>
+                <p></p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-th-large"></i>
+                    Modular
+                </h3>
+                <p></p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-check-square-o"></i>
+                    Plays Nice
+                </h3>
+                <p></p>
+            </div>
+        </div>
     <div class="ribbon l-box-lrg pure-g">
         <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
             <img width="300" alt="File Icons" class="pure-img-responsive" src="img/contato.png">
@@ -114,7 +134,7 @@
             <h2 class="content-head content-head-ribbon">Telefonia</h2>
 
             <p>
-                Info Telefonia
+                informações da Telefonia
             </p>
         </div>
     </div>
